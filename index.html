@@ -5,792 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio - TP3</title>
-    <!-- Importation de Bootstrap 5 (Le CSS magique) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome pour les petites icônes (téléphone, mail...) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Google Fonts - Modern Typography -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <style>
-        /* ========== VARIABLES & BASE ========== */
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --dark-bg: #0a0a0f;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.7);
-            --text-muted: rgba(255, 255, 255, 0.5);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-primary);
-            padding-top: 80px;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Animated background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(79, 172, 254, 0.05) 0%, transparent 70%);
-            z-index: -1;
-            animation: backgroundPulse 15s ease-in-out infinite;
-        }
-
-        @keyframes backgroundPulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        /* ========== NAVBAR ========== */
-        .navbar {
-            background: rgba(10, 10, 15, 0.8) !important;
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-brand {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-link {
-            color: var(--text-secondary) !important;
-            font-weight: 500;
-            padding: 0.5rem 1.2rem !important;
-            margin: 0 0.2rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: var(--text-primary) !important;
-            background: var(--glass-bg);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary-gradient);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after {
-            width: 60%;
-        }
-
-        /* ========== SECTIONS ========== */
-        section {
-            min-height: calc(100vh - 80px);
-            padding: 60px 20px;
-            display: none;
-        }
-
-        section.active {
-            display: block;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ========== TYPOGRAPHY ========== */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .display-4 {
-            font-weight: 700;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
-        }
-
-        .lead {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
-
-        .gradient-text {
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* ========== PROFILE IMAGE ========== */
-        .profile-img {
-            width: 280px;
-            height: 380px;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 20px;
-            box-shadow:
-                0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                0 0 0 1px var(--glass-border);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .profile-img:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow:
-                0 35px 60px -15px rgba(102, 126, 234, 0.4),
-                0 0 0 1px var(--glass-border);
-        }
-
-        /* ========== CARDS & GLASS EFFECT ========== */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        /* ========== BUTTONS ========== */
-        .btn-primary {
-            background: var(--primary-gradient);
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-            background: var(--primary-gradient);
-        }
-
-        .btn-outline-primary,
-        .btn-outline-secondary {
-            border: 2px solid var(--glass-border);
-            background: transparent;
-            color: var(--text-primary);
-            padding: 0.6rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-primary:hover,
-        .btn-outline-secondary:hover {
-            background: var(--primary-gradient);
-            border-color: transparent;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-primary);
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: var(--glass-border);
-            color: var(--text-primary);
-        }
-
-        /* ========== CV SECTION ========== */
-        #contenu-cv {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2.5rem;
-        }
-
-        #contenu-cv h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            border-bottom: 2px solid var(--glass-border) !important;
-            padding-bottom: 0.8rem;
-        }
-
-        #contenu-cv h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        #contenu-cv h5 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-        }
-
-        #contenu-cv .text-muted {
-            color: var(--text-muted) !important;
-            font-size: 0.9rem;
-        }
-
-        #contenu-cv ul {
-            padding-left: 1.2rem;
-            margin-top: 0.5rem;
-        }
-
-        #contenu-cv li {
-            color: var(--text-secondary);
-            margin-bottom: 0.4rem;
-            line-height: 1.6;
-        }
-
-        #contenu-cv p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        #contenu-cv .border-start {
-            border-color: var(--glass-border) !important;
-        }
-
-        /* ========== CONTACT ASIDE ========== */
-        .contact-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 1.5rem;
-        }
-
-        .contact-card h4 {
-            font-weight: 600;
-            margin-bottom: 1rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .contact-card li {
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .contact-card i {
-            color: #667eea;
-            font-size: 1.1rem;
-        }
-
-        /* ========== SKILL BADGES ========== */
-        .skill-category h5 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #667eea;
-            margin-bottom: 0.3rem;
-        }
-
-        .skill-category p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 992px) {
-            .display-4 {
-                font-size: 2.8rem;
-            }
-
-            .profile-img {
-                width: 200px;
-                height: 280px;
-                margin-bottom: 2rem;
-            }
-
-            #accueil .row {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            #accueil .col-md-4,
-            #accueil .col-md-5,
-            #accueil .col-md-3 {
-                width: 100%;
-                max-width: 100%;
-                padding: 0 15px;
-            }
-
-            #accueil p {
-                text-align: left;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .display-4 {
-                font-size: 2.2rem;
-            }
-
-            .profile-img {
-                width: 180px;
-                height: 250px;
-            }
-
-            #contenu-cv {
-                padding: 1.5rem;
-            }
-
-            section {
-                padding: 40px 15px;
-            }
-
-            .contact-card {
-                margin-top: 1.5rem;
-            }
-        }
-
-        /* ========== SCROLLBAR ========== */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--dark-bg);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--glass-border);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* ========== HR STYLING ========== */
-        hr {
-            border-color: var(--glass-border);
-            opacity: 0.5;
-        }
-
-        /* ========== ALERT STYLING ========== */
-        .alert-warning {
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            color: #fbbf24;
-            border-radius: 15px;
-        }
-
-        /* ========== ANIMATIONS ========== */
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* ========== PROJET AEROLINE ========== */
-        .project-hero {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .project-hero h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-hero .tech-stack {
-            color: var(--text-muted);
-            font-size: 1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .project-hero .project-desc {
-            color: var(--text-secondary);
-            max-width: 750px;
-            margin: 0 auto;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        .project-img {
-            width: 100%;
-            border-radius: 14px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .project-img:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.25);
-        }
-
-        .mcd-container {
-            max-width: 90%;
-            margin: 0 auto 1.5rem;
-        }
-
-        .btn-mld-toggle {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-primary);
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-mld-toggle:hover {
-            background: var(--primary-gradient);
-            border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-mld-toggle .chevron {
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-mld-toggle.active .chevron {
-            transform: rotate(180deg);
-        }
-
-        .mld-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        .mld-content.show {
-            max-height: 3000px;
-            opacity: 1;
-        }
-
-        .mld-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 1.5rem;
-            font-family: 'Fira Code', 'Courier New', monospace;
-            font-size: 0.85rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        .mld-card .entity-name {
-            color: #667eea;
-            font-weight: 700;
-        }
-
-        .mld-card .pk {
-            color: #f59e0b;
-        }
-
-        .mld-card .fk {
-            color: #f093fb;
-        }
-
-        .project-section-block {
-            margin-bottom: 4rem;
-        }
-
-        .project-section-block h3 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .project-section-block p,
-        .project-section-block li {
-            color: #E0E0E0;
-            line-height: 1.7;
-        }
-
-        .project-section-block ul {
-            padding-left: 1.2rem;
-        }
-
-        .project-section-block li {
-            margin-bottom: 0.5rem;
-        }
-
-        .project-section-block .row {
-            display: flex;
-            align-items: center;
-        }
-
-        .project-divider {
-            border: none;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-            margin: 3rem 0;
-        }
-
-        /* ========== LIGHTBOX ========== */
-        .lightbox-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            cursor: zoom-out;
-        }
-
-        .lightbox-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .lightbox-overlay img {
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: 12px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .lightbox-overlay.active img {
-            transform: scale(1);
-        }
-
-        /* ========== PROJETS HUB ========== */
-        .projects-hub-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .projects-hub-title h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .projects-hub-title p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .project-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            height: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(102, 126, 234, 0.4);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
-        }
-
-        .project-card-thumb {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            object-position: top;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .project-card-body {
-            padding: 1.5rem;
-        }
-
-        .project-card-body h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card-body .card-tech {
-            font-size: 0.8rem;
-            color: #667eea;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-        }
-
-        .project-card-body p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .btn-back-projects {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-primary);
-            padding: 0.6rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            margin-bottom: 2rem;
-        }
-
-        .btn-back-projects:hover {
-            background: var(--glass-border);
-            color: var(--text-primary);
-            transform: translateX(-3px);
-        }
-
-        /* Crop footer from screenshots */
-        .img-crop-footer {
-            overflow: hidden;
-            border-radius: 14px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            transition: all 0.4s ease;
-        }
-
-        .img-crop-footer:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.25);
-        }
-
-        .img-crop-footer img {
-            width: 100%;
-            display: block;
-            margin-bottom: -40px;
-        }
-
-        .mention-binome {
-            display: inline-block;
-            margin-top: 0.8rem;
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            background: rgba(102, 126, 234, 0.15);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            color: #a0aec0;
-            font-size: 0.85rem;
-            font-style: italic;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -800,7 +20,7 @@
         <img id="lightbox-img" src="" alt="Zoom">
     </div>
 
-    <!-- 1. BARRE DE NAVIGATION (NAVBAR) -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#" onclick="naviguerVers('accueil')">Feras MOURAD</a>
@@ -812,23 +32,17 @@
                     <li class="nav-item"><a class="nav-link" href="#" onclick="naviguerVers('accueil')">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" onclick="naviguerVers('cv')">Mon CV</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" onclick="naviguerVers('projets')">Projets</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link" href="#" onclick="naviguerVers('liens')">Liens</a></li> -->
-                    <!-- <li class="nav-item"><a class="nav-link" href="#" onclick="naviguerVers('loisirs')">Loisirs</a></li> -->
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- 2. PAGE D'ACCUEIL -->
+    <!-- ACCUEIL -->
     <section id="accueil" class="active container">
         <div class="row align-items-center">
-            <!-- Colonne Image (gauche sur grand écran, haut sur petit) -->
             <div class="col-md-4 text-center mb-4">
-                <!-- Image placeholder (chat) pour l'exemple -->
                 <img src="images/fm.jpeg" alt="Feras MOURAD" class="profile-img">
             </div>
-
-            <!-- Colonne Texte (droite sur grand écran, bas sur petit) -->
             <div class="col-md-5">
                 <h1 class="display-4">Feras MOURAD</h1>
                 <p class="lead">Ingénieur en Informatique</p>
@@ -843,7 +57,6 @@
                 </p>
                 <button class="btn btn-primary" onclick="naviguerVers('cv')">Voir mon Parcours</button>
             </div>
-
             <div class="col-md-3">
                 <aside class="contact-card">
                     <h4>Contact</h4>
@@ -859,47 +72,39 @@
         </div>
     </section>
 
-    <!-- 3. PAGE CV -->
+    <!-- CV -->
     <section id="cv" class="container">
         <h2 class="text-center mb-4">Curriculum Vitae</h2>
-
         <div class="text-center mb-4">
             <button class="btn btn-outline-primary me-2" onclick="afficherCV('fr')">Français 🇫🇷</button>
             <button class="btn btn-outline-secondary" onclick="afficherCV('en')">Anglais 🇬🇧</button>
         </div>
-
-        <!-- Conteneur du CV -->
         <div id="contenu-cv">
             <p class="text-center" style="color: rgba(255,255,255,0.5);">Sélectionnez une langue ci-dessus.</p>
         </div>
-
         <div class="mt-4 text-center">
             <button class="btn btn-secondary" onclick="naviguerVers('accueil')">← Retour Accueil</button>
         </div>
     </section>
 
-    <!-- 4. PAGE PROJETS (HUB) -->
+    <!-- PROJETS HUB -->
     <section id="projets" class="container">
         <div class="projects-hub-title">
             <h2>Mes Projets</h2>
-            <p>D&#233;couvrez mes r&#233;alisations techniques. Cliquez sur un projet pour en savoir plus.</p>
+            <p>Découvrez mes réalisations techniques. Cliquez sur un projet pour en savoir plus.</p>
         </div>
-
         <div class="row g-4 justify-content-center">
-            <!-- Carte AEROLINE -->
             <div class="col-md-6 col-lg-5">
                 <div class="project-card" onclick="naviguerVers('projet-aeroline')">
                     <img src="images/BDD/mcd.png" alt="Projet AEROLINE" class="project-card-thumb">
                     <div class="project-card-body">
-                        <p class="card-tech">PostgreSQL &#8226; Mod&#233;lisation &#8226; Web</p>
-                        <h3>Syst&#232;me d'Information A&#233;rien (AEROLINE)</h3>
-                        <p>Conception d'une architecture de base de donn&#233;es complexe pour g&#233;rer vols,
-                            &#233;quipages, passagers et billetterie.</p>
+                        <p class="card-tech">PostgreSQL &#8226; Modélisation &#8226; Web</p>
+                        <h3>Système d'Information Aérien (AEROLINE)</h3>
+                        <p>Conception d'une architecture de base de données complexe pour gérer vols, équipages,
+                            passagers et billetterie.</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Carte Hasami Shogi -->
             <div class="col-md-6 col-lg-5">
                 <div class="project-card" onclick="naviguerVers('projet-shogi')">
                     <img src="images/Hasami/shogi_interface.png" alt="Projet Hasami Shogi" class="project-card-thumb"
@@ -907,128 +112,122 @@
                     <div class="project-card-body">
                         <p class="card-tech">Langage C &#8226; Algorithmique &#8226; Tests</p>
                         <h3>Jeu Hasami Shogi en C</h3>
-                        <p>Impl&#233;mentation compl&#232;te d'un jeu de plateau strat&#233;gique avec logique de
-                            capture par encadrement et validation automatis&#233;e.</p>
+                        <p>Implémentation complète d'un jeu de plateau stratégique avec logique de capture par
+                            encadrement et validation automatisée.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5">
+                <div class="project-card" onclick="naviguerVers('projet-graphes')">
+                    <img src="images/Graphes/thumbnail_graphe.png" alt="Projet Graphes" class="project-card-thumb">
+                    <div class="project-card-body">
+                        <p class="card-tech">Langage C &#8226; Algorithmique &#8226; Ordonnancement</p>
+                        <h3>Graphes et Ordonnancements</h3>
+                        <p>Implémentation d'algorithmes de graphes pour le calcul du chemin critique et la visualisation
+                            interactive de l'ordonnancement de tâches.</p>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="mt-5 text-center">
             <button class="btn btn-secondary" onclick="naviguerVers('accueil')">&#8592; Retour Accueil</button>
         </div>
     </section>
 
-    <!-- 4a. SOUS-PAGE AEROLINE -->
+    <!-- SOUS-PAGE AEROLINE -->
     <section id="projet-aeroline" class="container">
-
         <button class="btn-back-projects" onclick="naviguerVers('projets')">
             <i class="fas fa-arrow-left"></i> Retour aux Projets
         </button>
-
         <div class="project-hero">
-            <h2>Syst&#232;me d'Information A&#233;rien (AEROLINE)</h2>
-            <p class="tech-stack">PostgreSQL &#8226; Mod&#233;lisation de Donn&#233;es &#8226; Architecture Web</p>
-            <span class="mention-binome">&#128101; Projet acad&#233;mique r&#233;alis&#233; en bin&#244;me</span>
+            <h2>Système d'Information Aérien (AEROLINE)</h2>
+            <p class="tech-stack">PostgreSQL &#8226; Modélisation de Données &#8226; Architecture Web</p>
+            <span class="mention-binome">&#128101; Projet académique réalisé en binôme</span>
             <p class="project-desc">
-                Conception et d&#233;veloppement d'un syst&#232;me de gestion de base de donn&#233;es complexe pour une
-                compagnie
-                a&#233;rienne. L'objectif principal &#233;tait de mod&#233;liser une architecture robuste sous
-                PostgreSQL permettant
-                de g&#233;rer les interactions entre les vols, les &#233;quipages, les passagers et la billetterie.
+                Conception et développement d'un système de gestion de base de données complexe pour une compagnie
+                aérienne.
+                L'objectif principal était de modéliser une architecture robuste sous PostgreSQL permettant de gérer les
+                interactions
+                entre les vols, les équipages, les passagers et la billetterie.
             </p>
         </div>
-
         <hr class="project-divider">
-
         <div class="project-section-block text-center">
-            <h3>Mod&#233;lisation Conceptuelle et Logique</h3>
+            <h3>Modélisation Conceptuelle et Logique</h3>
             <div class="mcd-container">
                 <img src="images/BDD/mcd.png" alt="MCD AEROLINE" class="project-img mb-3">
             </div>
             <ul class="text-start" style="max-width: 700px; margin: 0 auto 1.5rem;">
-                <li>Cr&#233;ation de plus de 10 entit&#233;s interconnect&#233;es (Vols, Avions, Employ&#233;s, Billets,
-                    etc.).</li>
-                <li>Gestion stricte des cardinalit&#233;s et des contraintes d'int&#233;grit&#233;
-                    r&#233;f&#233;rentielle.</li>
+                <li>Création de plus de 10 entités interconnectées (Vols, Avions, Employés, Billets, etc.).</li>
+                <li>Gestion stricte des cardinalités et des contraintes d'intégrité référentielle.</li>
             </ul>
             <button class="btn-mld-toggle" onclick="toggleMLD()">
-                <i class="fas fa-database"></i> Voir le Sch&#233;ma Relationnel (MLD)
+                <i class="fas fa-database"></i> Voir le Schéma Relationnel (MLD)
                 <span class="chevron">&#9660;</span>
             </button>
             <div id="mld-accordion" class="mld-content">
                 <div class="mld-card text-start">
-                    <p style="color: var(--text-muted); font-style: italic; margin-bottom: 1rem;">L&#233;gende : <span
-                            class="pk">PK</span> = Cl&#233; Primaire, <span class="fk">FK</span> = Cl&#233;
-                        &#201;trang&#232;re (#), DMS = Date de Mise en Service</p>
+                    <p style="color: var(--text-muted); font-style: italic; margin-bottom: 1rem;">Légende : <span
+                            class="pk">PK</span> = Clé Primaire, <span class="fk">FK</span> = Clé Étrangère (#), DMS =
+                        Date de Mise en Service</p>
                     <p><span class="entity-name">PAYS</span> (<span class="pk">ID_pays [PK]</span>, Nom)</p>
                     <p><span class="entity-name">TYPE_AVION</span> (<span class="pk">Code_type [PK]</span>, Fabricant,
-                        Mod&#232;le, Nb_si&#232;ges)</p>
+                        Modèle, Nb_sièges)</p>
                     <p><span class="entity-name">AEROPORT</span> (<span class="pk">Code_IATA [PK]</span>, Ville, Nom)
                     </p>
-                    <p><span class="entity-name">FONCTION</span> (<span class="pk">ID_fonction [PK]</span>,
-                        Libell&#233;)</p>
-                    <p><span class="entity-name">PASSAGER</span> (<span class="pk">ID_passager [PK]</span>, Nom,
-                        Pr&#233;nom, Date_Naiss, Tel, email)</p>
+                    <p><span class="entity-name">FONCTION</span> (<span class="pk">ID_fonction [PK]</span>, Libellé)</p>
+                    <p><span class="entity-name">PASSAGER</span> (<span class="pk">ID_passager [PK]</span>, Nom, Prénom,
+                        Date_Naiss, Tel, email)</p>
                     <p><span class="entity-name">COMPAGNIE</span> (<span class="pk">ID_compagnie [PK]</span>, Nom, <span
-                            class="fk">#ID_pays [FK &#8594; PAYS]</span>)</p>
+                            class="fk">#ID_pays [FK → PAYS]</span>)</p>
                     <p><span class="entity-name">AVION</span> (<span class="pk">ID_avion [PK]</span>, DMS, <span
-                            class="fk">#ID_compagnie [FK &#8594; COMPAGNIE]</span>, <span class="fk">#Code_type [FK
-                            &#8594; TYPE_AVION]</span>)</p>
-                    <p><span class="entity-name">EMPLOYE</span> (<span class="pk">ID_employ&#233; [PK]</span>, Nom,
-                        Pr&#233;nom, Num_poste, <span class="fk">#ID_compagnie [FK &#8594; COMPAGNIE]</span>, <span
-                            class="fk">#ID_fonction [FK &#8594; FONCTION]</span>)</p>
+                            class="fk">#ID_compagnie [FK → COMPAGNIE]</span>, <span class="fk">#Code_type [FK →
+                            TYPE_AVION]</span>)</p>
+                    <p><span class="entity-name">EMPLOYE</span> (<span class="pk">ID_employé [PK]</span>, Nom, Prénom,
+                        Num_poste, <span class="fk">#ID_compagnie [FK → COMPAGNIE]</span>, <span class="fk">#ID_fonction
+                            [FK → FONCTION]</span>)</p>
                     <p><span class="entity-name">FIDELITE</span> (<span class="pk">ID_compte [PK]</span>, SoldeMiles,
-                        Statut, DateAdhesion, <span class="fk">#ID_passager [FK &#8594; PASSAGER]</span>)</p>
-                    <p><span class="entity-name">VOL</span> (<span class="pk">ID_vol [PK]</span>, Ref_vol,
-                        Date_d&#233;part, Date_arriv&#233;e, Statut_de_vol, <span class="fk">#Code_IATA_depart [FK
-                            &#8594; AEROPORT]</span>, <span class="fk">#Code_IATA_arrivee [FK &#8594; AEROPORT]</span>,
-                        <span class="fk">#ID_avion [FK &#8594; AVION]</span>)
-                    </p>
+                        Statut, DateAdhesion, <span class="fk">#ID_passager [FK → PASSAGER]</span>)</p>
+                    <p><span class="entity-name">VOL</span> (<span class="pk">ID_vol [PK]</span>, Ref_vol, Date_départ,
+                        Date_arrivée, Statut_de_vol, <span class="fk">#Code_IATA_depart [FK → AEROPORT]</span>, <span
+                            class="fk">#Code_IATA_arrivee [FK → AEROPORT]</span>, <span class="fk">#ID_avion [FK →
+                            AVION]</span>)</p>
                     <p><span class="entity-name">MAINTENANCE</span> (<span class="pk">ID_maintenance [PK]</span>,
-                        Date_entretien, Rapport, <span class="fk">#ID_employ&#233; [FK &#8594; EMPLOYE]</span>, <span
-                            class="fk">#ID_avion [FK &#8594; AVION]</span>)</p>
-                    <p><span class="entity-name">BILLET</span> (<span class="pk">ID_billet [PK]</span>, Date,
-                        Num_si&#232;ge, Validation, Classe, <span class="fk">#ID_passager [FK &#8594; PASSAGER]</span>,
-                        <span class="fk">#ID_vol [FK &#8594; VOL]</span>, <span class="fk">#ID_employ&#233; [FK &#8594;
-                            EMPLOYE]</span>)
+                        Date_entretien, Rapport, <span class="fk">#ID_employé [FK → EMPLOYE]</span>, <span
+                            class="fk">#ID_avion [FK → AVION]</span>)</p>
+                    <p><span class="entity-name">BILLET</span> (<span class="pk">ID_billet [PK]</span>, Date, Num_siège,
+                        Validation, Classe, <span class="fk">#ID_passager [FK → PASSAGER]</span>, <span
+                            class="fk">#ID_vol [FK → VOL]</span>, <span class="fk">#ID_employé [FK → EMPLOYE]</span>)
                     </p>
                     <p><span class="entity-name">GESTION_BAGAGES</span> (<span class="pk">ID_bagage [PK]</span>, Poids,
-                        Statut, <span class="fk">#ID_billet [FK &#8594; BILLET]</span>)</p>
-                    <p><span class="entity-name">AFFECTATION_EQUIPAGE</span> (R&#244;le, Responsable, <span
-                            class="pk fk">#ID_vol [PK, FK &#8594; VOL]</span>, <span class="pk fk">#ID_employ&#233; [PK,
-                            FK &#8594; EMPLOYE]</span>)</p>
+                        Statut, <span class="fk">#ID_billet [FK → BILLET]</span>)</p>
+                    <p><span class="entity-name">AFFECTATION_EQUIPAGE</span> (Rôle, Responsable, <span
+                            class="pk fk">#ID_vol [PK, FK → VOL]</span>, <span class="pk fk">#ID_employé [PK, FK →
+                            EMPLOYE]</span>)</p>
                     <p><span class="entity-name">CERTIFICATION</span> (Date_obtention, Libelle, <span
-                            class="pk fk">#ID_employ&#233; [PK, FK &#8594; EMPLOYE]</span>, <span
-                            class="pk fk">#Code_type [PK, FK &#8594; TYPE_AVION]</span>)</p>
-                    <p><span class="entity-name">PARTICIPE</span> (<span class="pk fk">#ID_employ&#233; [PK, FK &#8594;
-                            EMPLOYE]</span>, <span class="pk fk">#ID_maintenance [PK, FK &#8594; MAINTENANCE]</span>)
-                    </p>
+                            class="pk fk">#ID_employé [PK, FK → EMPLOYE]</span>, <span class="pk fk">#Code_type [PK, FK
+                            → TYPE_AVION]</span>)</p>
+                    <p><span class="entity-name">PARTICIPE</span> (<span class="pk fk">#ID_employé [PK, FK →
+                            EMPLOYE]</span>, <span class="pk fk">#ID_maintenance [PK, FK → MAINTENANCE]</span>)</p>
                 </div>
             </div>
         </div>
-
         <hr class="project-divider">
-
         <div class="project-section-block">
             <h3>Consultation et Jointures SQL complexes</h3>
             <ul class="mb-4">
                 <li>Mise en place de vues dynamiques pour afficher le planning des vols.</li>
-                <li>Utilisation de jointures (<code>JOIN</code>) pour agr&#233;ger les donn&#233;es de l'&#233;quipage,
-                    de l'avion et des passagers sur une seule vue d&#233;taill&#233;e en fonction de l'ID du vol.</li>
+                <li>Utilisation de jointures (<code>JOIN</code>) pour agréger les données de l'équipage, de l'avion et
+                    des passagers sur une seule vue détaillée en fonction de l'ID du vol.</li>
             </ul>
             <div class="row g-4">
-                <div class="col-md-6">
-                    <img src="images/BDD/liste_vols.png" alt="Planning des Vols" class="project-img">
+                <div class="col-md-6"><img src="images/BDD/liste_vols.png" alt="Planning des Vols" class="project-img">
                 </div>
-                <div class="col-md-6">
-                    <img src="images/BDD/details_vol.png" alt="D&#233;tails d'un vol" class="project-img">
+                <div class="col-md-6"><img src="images/BDD/details_vol.png" alt="Détails d'un vol" class="project-img">
                 </div>
             </div>
         </div>
-
         <hr class="project-divider">
-
         <div class="project-section-block">
             <div class="row align-items-center g-4">
                 <div class="col-md-7">
@@ -1040,26 +239,23 @@
                 <div class="col-md-5">
                     <h3>Gestion des Ressources Humaines (CRUD)</h3>
                     <ul>
-                        <li>D&#233;veloppement d'interfaces d'administration pour l'insertion (<code>INSERT</code>) et
-                            la mise &#224; jour (<code>UPDATE</code>) des employ&#233;s.</li>
-                        <li>Attribution de r&#244;les et de certifications avec v&#233;rification des cl&#233;s
-                            &#233;trang&#232;res pour garantir la coh&#233;rence de la base.</li>
+                        <li>Développement d'interfaces d'administration pour l'insertion (<code>INSERT</code>) et la
+                            mise à jour (<code>UPDATE</code>) des employés.</li>
+                        <li>Attribution de rôles et de certifications avec vérification des clés étrangères pour
+                            garantir la cohérence de la base.</li>
                     </ul>
                 </div>
             </div>
         </div>
-
         <hr class="project-divider">
-
         <div class="project-section-block">
             <div class="row align-items-center g-4">
                 <div class="col-md-5">
-                    <h3>Processus M&#233;tier et Transactions</h3>
+                    <h3>Processus Métier et Transactions</h3>
                     <ul>
-                        <li>Impl&#233;mentation de la logique de vente de billets li&#233;s &#224; un vol
-                            sp&#233;cifique.</li>
+                        <li>Implémentation de la logique de vente de billets liés à un vol spécifique.</li>
                         <li>Enregistrement des bagages avec calcul des contraintes de poids, impactant directement les
-                            tables li&#233;es aux passagers et aux vols.</li>
+                            tables liées aux passagers et aux vols.</li>
                     </ul>
                 </div>
                 <div class="col-md-7">
@@ -1070,33 +266,27 @@
                 </div>
             </div>
         </div>
-
         <div class="mt-5 text-center">
             <button class="btn btn-secondary" onclick="naviguerVers('projets')">&#8592; Retour aux Projets</button>
         </div>
     </section>
 
-    <!-- 4b. SOUS-PAGE HASAMI SHOGI -->
+    <!-- SOUS-PAGE HASAMI SHOGI -->
     <section id="projet-shogi" class="container">
-
         <button class="btn-back-projects" onclick="naviguerVers('projets')">
             <i class="fas fa-arrow-left"></i> Retour aux Projets
         </button>
-
-        <!-- ===== EN-TÊTE ===== -->
         <div class="project-hero">
-            <h2>Jeu de Plateau Strat&#233;gique : Hasami Shogi</h2>
+            <h2>Jeu de Plateau Stratégique : Hasami Shogi</h2>
             <p class="tech-stack">Langage C &#8226; Algorithmique &#8226; Tests (Valgrind)</p>
             <p class="project-desc">
-                Impl&#233;mentation compl&#232;te d'un jeu de plateau en langage C respectant strictement
-                un cahier des charges complexe. Ce projet met l'accent sur la rigueur algorithmique,
-                la gestion de la m&#233;moire et la validation par des tests automatis&#233;s.
+                Implémentation complète d'un jeu de plateau en langage C respectant strictement un cahier des charges
+                complexe.
+                Ce projet met l'accent sur la rigueur algorithmique, la gestion de la mémoire et la validation par des
+                tests automatisés.
             </p>
         </div>
-
         <hr class="project-divider">
-
-        <!-- ===== PARTIE A : Interface Console ===== -->
         <div class="project-section-block">
             <div class="row align-items-center g-4">
                 <div class="col-md-7">
@@ -1105,29 +295,25 @@
                         onerror="this.style.background='linear-gradient(135deg, #667eea, #764ba2)'; this.style.height='400px'; this.style.borderRadius='14px'; this.src='';">
                 </div>
                 <div class="col-md-5">
-                    <h3>Interface Console et Jouabilit&#233;</h3>
+                    <h3>Interface Console et Jouabilité</h3>
                     <ul>
-                        <li>Affichage dynamique du plateau en ligne de commande avec mise &#224; jour en temps r&#233;el
-                            des scores.</li>
-                        <li>Gestion de la saisie utilisateur s&#233;curis&#233;e (coordonn&#233;es alphanum&#233;riques)
-                            pour le d&#233;placement des pions.</li>
+                        <li>Affichage dynamique du plateau en ligne de commande avec mise à jour en temps réel des
+                            scores.</li>
+                        <li>Gestion de la saisie utilisateur sécurisée (coordonnées alphanumériques) pour le déplacement
+                            des pions.</li>
                     </ul>
                 </div>
             </div>
         </div>
-
         <hr class="project-divider">
-
-        <!-- ===== PARTIE B : Logique Métier ===== -->
         <div class="project-section-block">
             <div class="row align-items-center g-4">
                 <div class="col-md-5">
-                    <h3>Algorithmique et M&#233;canique de Capture</h3>
+                    <h3>Algorithmique et Mécanique de Capture</h3>
                     <ul>
-                        <li>D&#233;veloppement d'une logique complexe pour v&#233;rifier la validit&#233; des
-                            d&#233;placements et ex&#233;cuter les <strong style="color: #f59e0b;">captures par
-                                encadrement</strong>.</li>
-                        <li>Contr&#244;le strict des limites du tableau et parcours directionnel optimis&#233; (boucles
+                        <li>Développement d'une logique complexe pour vérifier la validité des déplacements et exécuter
+                            les <strong style="color: #f59e0b;">captures par encadrement</strong>.</li>
+                        <li>Contrôle strict des limites du tableau et parcours directionnel optimisé (boucles
                             <code>while</code>).
                         </li>
                     </ul>
@@ -1138,29 +324,25 @@
                 </div>
             </div>
         </div>
-
         <hr class="project-divider">
-
-        <!-- ===== PARTIE C : Valgrind / Robustesse ===== -->
         <div class="project-section-block">
             <div class="row align-items-center g-4">
                 <div class="col-md-7">
-                    <img src="images/Hasami/shogi_valgrind.png" alt="R&#233;sultat Valgrind - 0 fuites m&#233;moire"
+                    <img src="images/Hasami/shogi_valgrind.png" alt="Résultat Valgrind - 0 fuites mémoire"
                         class="project-img"
                         onerror="this.style.background='linear-gradient(135deg, #667eea, #764ba2)'; this.style.height='400px'; this.style.borderRadius='14px'; this.src='';">
                 </div>
                 <div class="col-md-5">
-                    <h3>Validation et Gestion de la M&#233;moire</h3>
+                    <h3>Validation et Gestion de la Mémoire</h3>
                     <ul>
                         <li>Analyse approfondie avec <strong style="color: #4facfe;">Valgrind</strong> certifiant
-                            l'absence totale de fuites m&#233;moire (<code>0 leaks possible</code>).</li>
+                            l'absence totale de fuites mémoire (<code>0 leaks possible</code>).</li>
                         <li>Validation de la robustesse globale de l'application via des <strong>tests
-                                automatis&#233;s</strong> par redirection de flux.</li>
+                                automatisés</strong> par redirection de flux.</li>
                     </ul>
                 </div>
             </div>
         </div>
-
         <div class="mt-5 text-center" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
             <button class="btn btn-secondary" onclick="naviguerVers('projets')">&#8592; Retour aux Projets</button>
             <a href="https://github.com/FerasMOURAD/Hasami-Shogi-C" target="_blank" class="btn btn-secondary"
@@ -1170,395 +352,91 @@
         </div>
     </section>
 
+    <!-- SOUS-PAGE GRAPHES & ORDONNANCEMENT -->
+    <section id="projet-graphes" class="container">
+        <button class="btn-back-projects" onclick="naviguerVers('projets')">
+            <i class="fas fa-arrow-left"></i> Retour aux Projets
+        </button>
 
-    <!-- 5. PAGE LIENS (commenté)
-    <section id="liens" class="container">
-        <h2>Mes Références</h2>
-        <p>Voici les liens vers les institutions mentionnées dans mon parcours :</p>
-
-        <div class="list-group">
-            <a href="https://www.univ-lille.fr/" target="_blank" class="list-group-item list-group-item-action">
-                <i class="fas fa-university"></i> Université de Lille (Mon École)
-            </a>
-            <a href="https://openclassrooms.com/" target="_blank" class="list-group-item list-group-item-action">
-                <i class="fas fa-laptop-code"></i> OpenClassrooms (Formation continue)
-            </a>
-            <a href="https://github.com/" target="_blank" class="list-group-item list-group-item-action">
-                <i class="fab fa-github"></i> Mon GitHub
-            </a>
+        <div class="project-hero">
+            <h2>Graphes et Ordonnancements</h2>
+            <p class="tech-stack">Langage C &#8226; Algorithmique &#8226; Ordonnancement</p>
+            <p class="project-desc">
+                Implémentation en C d'un programme d'ordonnancement de projets à partir d'un graphe de tâches.
+                Le programme calcule automatiquement les dates au plus tôt, les dates au plus tard, les marges
+                et identifie les tâches critiques afin de déterminer la durée minimale du projet.
+            </p>
+            <img src="images/Graphes/thumbnail_graphe.png" alt="Visualisation du graphe"
+                style="max-height: 340px; width: auto; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); margin-top: 1.5rem;">
         </div>
 
-        <div class="mt-4">
-            <button class="btn btn-secondary" onclick="naviguerVers('accueil')">← Retour Accueil</button>
-        </div>
-    </section> -->
+        <hr class="project-divider">
 
-
-
-
-
-
-    <!-- 5. PAGE LOISIRS
-    <section id="loisirs" class="container">
-        <h2 class="mb-4">Mes Loisirs</h2>
-
-        <div class="row" id="section-loisirs-contenu">
-            <article class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="card-title"><i class="fas fa-chess"></i> Les Échecs</h3>
-                        <p class="card-text">
-                            Passionné de stratégie, je joue régulièrement aux échecs en club.
-                            Cela m'aide à développer ma logique et ma patience, des qualités utiles en programmation C !
-                        </p>
-                    </div>
+        <!-- Bellman : texte gauche / image droite -->
+        <div class="project-section-block">
+            <div class="row align-items-center g-4">
+                <div class="col-md-5">
+                    <h3>Calcul des dates (Bellman)</h3>
+                    <ul>
+                        <li>Implémentation en C du calcul des dates au plus tôt et au plus tard.</li>
+                        <li>Utilisation de la liste des prédécesseurs pour parcourir les dépendances entre tâches.</li>
+                        <li>Calcul de la durée minimale du projet à partir de la tâche finale.</li>
+                        <li>Base du programme pour identifier ensuite les marges et les tâches critiques.</li>
+                    </ul>
                 </div>
-            </article>
-
-
-
-            <article class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="card-title"><i class="fas fa-music"></i> Guitare</h3>
-                        <p class="card-text">
-                            Je pratique la guitare acoustique depuis 5 ans. J'aime particulièrement le blues et le rock
-                            classique.
-                        </p>
-                    </div>
+                <div class="col-md-7">
+                    <img src="images/Graphes/Bellman.png" alt="Algorithme de Bellman" class="project-img">
                 </div>
-            </article>
+            </div>
         </div>
 
-        <div class="mt-4">
-            <button class="btn btn-secondary" onclick="naviguerVers('accueil')">← Retour Accueil</button>
+        <hr class="project-divider">
+
+        <!-- Structs : image gauche / texte droite -->
+        <div class="project-section-block">
+            <div class="row align-items-center g-4">
+                <div class="col-md-7">
+                    <img src="images/Graphes/structs.png" alt="Structures de données" class="project-img">
+                </div>
+                <div class="col-md-5">
+                    <h3>Structures de Données</h3>
+                    <ul>
+                        <li>Représentation du graphe avec un tableau de tâches.</li>
+                        <li>Chaque tâche contient son identifiant, sa durée, sa date au plus tôt, sa date au plus tard et ses prédécesseurs.</li>
+                        <li>Utilisation de listes chaînées pour stocker les prédécesseurs de chaque tâche.</li>
+                        <li>Organisation modulaire du code avec un fichier <code>.h</code> pour les structures et prototypes.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </section> -->
 
+        <hr class="project-divider">
 
+        <!-- Results : texte gauche / image droite -->
+        <div class="project-section-block">
+            <div class="row align-items-center g-4">
+                <div class="col-md-5">
+                    <h3>Résultats</h3>
+                    <ul>
+                        <li>Génération automatique d'un fichier de résultats après l'exécution du programme.</li>
+                        <li>Affichage de la durée minimale totale du projet.</li>
+                        <li>Détail pour chaque tâche : date au plus tôt, date au plus tard et marge.</li>
+                        <li>Identification automatique des tâches critiques lorsque leur marge est nulle.</li>
+                    </ul>
+                </div>
+                <div class="col-md-7">
+                    <img src="images/Graphes/res.png" alt="Résultats du programme" class="project-img">
+                </div>
+            </div>
+        </div>
 
+        <div class="mt-5 text-center">
+            <button class="btn btn-secondary" onclick="naviguerVers('projets')">&#8592; Retour aux Projets</button>
+        </div>
+    </section>
 
-
-
-
-
-    <!-- BOUTON RETOUR EN HAUT
-    <button id="btn-back-to-top" class="btn btn-primary rounded-circle" onclick="window.scrollTo(0,0)">
-        <i class="fas fa-arrow-up"></i>
-    </button> -->
-
-    <!-- Scripts Bootstrap + Notre Script JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        // --- LOGIQUE DE NAVIGATION ---
-        // Analogie C : C'est comme un switch/case géant pour afficher le bon écran
-        function naviguerVers(idSection) {
-            // 1. On cache toutes les sections
-            document.querySelectorAll('section').forEach(sec => {
-                sec.classList.remove('active');
-            });
-
-            // 2. On affiche la section demandée
-            const sectionVisee = document.getElementById(idSection);
-            if (sectionVisee) {
-                sectionVisee.classList.add('active');
-            }
-
-            // Sauvegarder la section courante dans localStorage
-            localStorage.setItem('sectionCourante', idSection);
-
-            // On ferme le menu mobile si ouvert (Bonus UX)
-            const navbar = document.querySelector('.navbar-collapse');
-            if (navbar.classList.contains('show')) {
-                new bootstrap.Collapse(navbar).toggle();
-            }
-
-            // Remonter en haut de page
-            window.scrollTo(0, 0);
-        }
-
-        // --- Restaurer la section après rafraîchissement ---
-        window.addEventListener('DOMContentLoaded', function () {
-            const sectionSauvegardee = localStorage.getItem('sectionCourante');
-            if (sectionSauvegardee) {
-                naviguerVers(sectionSauvegardee);
-                // Si c'était le CV, recharger aussi la langue
-                if (sectionSauvegardee === 'cv') {
-                    const langueSauvegardee = localStorage.getItem('langueCV') || 'fr';
-                    afficherCV(langueSauvegardee);
-                }
-            }
-        });
-
-        // --- LOGIQUE DU CV ---
-        function afficherCV(langue) {
-            const conteneur = document.getElementById('contenu-cv');
-
-            // Sauvegarder la langue choisie
-            localStorage.setItem('langueCV', langue);
-
-            // On utilise innerHTML pour injecter la structure (DOM Manipulation)
-            if (langue === 'fr') {
-                conteneur.innerHTML = `
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h3 class="text-primary border-bottom pb-2">Formation</h3>
-                            <div class="mb-3">
-                                <h5>Diplôme d'Ingénieur en Informatique et Statistique</h5>
-                                <span class="text-muted">Polytech Lille, Lille, France | 2025 - 2028</span>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Licence de Mathématiques</h5>
-                                <span class="text-muted">Université de Lille, Lille, France | 2023 - 2025</span>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Baccalauréat Libanais</h5>
-                                <span class="text-muted">Lycée Rafic Hariri - Saida, Liban | 2022</span>
-                                <p>Spé Sciences de la Vie. Mention : Très Bien</p>
-                            </div>
-
-                            <h3 class="text-primary border-bottom pb-2 mt-4">Projets</h3>
-                            <div class="mb-3">
-                                <h5>Jeu Hasami Shogi en C</h5>
-                                <span class="text-muted">Projet académique | 2026</span>
-                                <ul>
-                                    <li>Respect strict du cahier de charges et implémentation de la logique métier complexe (déplacements, captures).</li>
-                                    <li>Validation de la robustesse par tests automatisés via redirection de flux.</li>
-                                </ul>
-                            </div>
-
-
-
-
-                            <!-- <div class="mb-3">
-                                <h5>Portfolio Personnel</h5>
-                                <span class="text-muted">Projet personnel | 2026</span>
-                                <ul>
-                                    <li>Site web responsive développé avec HTML, CSS, JavaScript et Bootstrap pour présenter mon parcours et mes compétences.</li>
-                                </ul>
-                            </div> -->
-
-
-
-
-                            
-                            <div class="mb-3">
-                                <h5>Dashboard Power BI</h5>
-                                <span class="text-muted">Projet data | 2025</span>
-                                <ul>
-                                    <li>Création de tableaux de bord interactifs transformant des jeux de données bruts en insights visuels clairs.</li>
-                                    <li>Utilisation de DAX pour des calculs avancés et mise en place de filtres dynamiques.</li>
-                                    <li>Définition et suivi de KPIs stratégiques pour faciliter l’analyse de tendances et supporter la prise de décision.</li>
-                                </ul>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Système d'Information Aérien</h5>
-                                <span class="text-muted">Projet académique | 2025</span>
-                                <ul>
-                                    <li>Conception d'une architecture complexe (MCD/MLD) sous PostgreSQL pour gérer les interactions Vols/Billets/Équipages.</li>
-                                    <li>Développement de l'application web et intégration des requêtes SQL.</li>
-                                </ul>
-                            </div>
-                            
-                            <h3 class="text-primary border-bottom pb-2 mt-4">Expériences Professionnelles</h3>
-                            <div class="mb-3">
-                                <h5>Professeur de Mathématiques</h5>
-                                <span class="text-muted">2024 - Présent</span>
-                                <ul>
-                                    <li>Mentorat académique pour élèves du secondaire.</li>
-                                    <li>Traduction de théories abstraites en méthodes de résolution structurées.</li>
-                                </ul>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Assistant Recrutement</h5>
-                                <span class="text-muted">AlWassim Career Leaders, Saida - Liban | 06/2022 - 08/2022</span>
-                                <ul>
-                                    <li>Gestion de la base de données candidats et optimisation du processus de présélection.</li>
-                                    <li>Analyse et filtrage des candidatures par rapports aux exigences techniques des postes.</li>
-                                </ul>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Coach de Football</h5>
-                                <span class="text-muted">FC Saida, Saida - Liban | 06/2021 - 08/2021</span>
-                                <ul>
-                                    <li>Entraînement d'enfants (9-13 ans) : technique, esprit d'équipe.</li>
-                                    <li>Planification de sessions adaptées aux niveaux et organisation de matches et tournois.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4 border-start">
-                            <h4 class="text-success">Compétences</h4>
-                            <h5 class="text-primary">Programmation</h5>
-                            <p>PostgreSQL, Pandas, NumPy, Git, C, Java</p>
-                            
-                            <h5 class="text-primary">Visualisation</h5>
-                            <p>Power BI, DAX, R, Tableau</p>
-                            
-                            <h5 class="text-primary">Soft Skills</h5>
-                            <p>Adaptabilité, Communication claire avec des profils non-techniques</p>
-
-                            <h4 class="text-info">Langues</h4>
-                            <p>Arabe (Natif)<br>Anglais (B2 - TOEIC 920)<br>Français (B2)<br>Allemand (A2)</p>
-
-                            <h4 class="text-warning">Distinctions</h4>
-                            <p>PIX Niveau Avancé (2025)<br>Teens Who Code (2018)</p>
-
-                            <h4 class="text-danger">Centres d'intérêt</h4>
-                            <p>Apprentissage Autonome (UDEMY)<br>Football<br>Lecture de Mangas<br>Séries / Films / Anime</p>
-                        </div>
-                    </div>
-                `;
-            } else if (langue === 'en') {
-                conteneur.innerHTML = `
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h3 class="text-primary border-bottom pb-2">Education</h3>
-                            <div class="mb-3">
-                                <h5>Engineering Degree in Computer Science and Statistics</h5>
-                                <span class="text-muted">Polytech Lille, Lille, France | 2025 - 2028</span>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Bachelor's Degree in Mathematics</h5>
-                                <span class="text-muted">University of Lille, Lille, France | 2023 - 2025</span>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Lebanese Baccalaureate</h5>
-                                <span class="text-muted">Rafic Hariri High School - Saida, Lebanon | 2022</span>
-                                <p>Life Sciences Major. Honors: Highest Distinction</p>
-                            </div>
-
-                            <h3 class="text-primary border-bottom pb-2 mt-4">Projects</h3>
-                            <div class="mb-3">
-                                <h5>Hasami Shogi Game in C</h5>
-                                <span class="text-muted">Academic Project | 2026</span>
-                                <ul>
-                                    <li>Strict adherence to specifications and implementation of complex game logic (moves, captures).</li>
-                                    <li>Robustness validation through automated testing via stream redirection.</li>
-                                </ul>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Power BI Dashboard</h5>
-                                <span class="text-muted">Data Project | 2025</span>
-                                <ul>
-                                    <li>Created interactive dashboards transforming raw datasets into clear visual insights.</li>
-                                    <li>Used DAX for advanced calculations and implemented dynamic filters.</li>
-                                    <li>Defined and tracked strategic KPIs to facilitate trend analysis and support decision-making.</li>
-                                </ul>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Airline Information System</h5>
-                                <span class="text-muted">Academic Project | 2025</span>
-                                <ul>
-                                    <li>Designed a complex architecture (CDM/LDM) using PostgreSQL to manage Flights/Tickets/Crew interactions.</li>
-                                    <li>Developed the web application and integrated SQL queries.</li>
-                                </ul>
-                            </div>
-                            
-                            <h3 class="text-primary border-bottom pb-2 mt-4">Professional Experience</h3>
-                            <div class="mb-3">
-                                <h5>Mathematics Tutor</h5>
-                                <span class="text-muted">2024 - Present</span>
-                                <ul>
-                                    <li>Academic mentoring for high school students.</li>
-                                    <li>Translating abstract theories into structured problem-solving methods.</li>
-                                </ul>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Recruitment Assistant</h5>
-                                <span class="text-muted">AlWassim Career Leaders, Saida - Lebanon | 06/2022 - 08/2022</span>
-                                <ul>
-                                    <li>Managed candidate database and optimized the pre-selection process.</li>
-                                    <li>Analyzed and filtered applications against technical job requirements.</li>
-                                </ul>
-                            </div>
-                            <div class="mb-3">
-                                <h5>Football Coach</h5>
-                                <span class="text-muted">FC Saida, Saida - Lebanon | 06/2021 - 08/2021</span>
-                                <ul>
-                                    <li>Trained children (ages 9-13): technique and teamwork.</li>
-                                    <li>Planned level-appropriate sessions and organized matches and tournaments.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4 border-start">
-                            <h4 class="text-success">Skills</h4>
-                            <h5 class="text-primary">Programming</h5>
-                            <p>PostgreSQL, Pandas, NumPy, Git, C, Java</p>
-                            
-                            <h5 class="text-primary">Data Visualization</h5>
-                            <p>Power BI, DAX, R, Tableau</p>
-                            
-                            <h5 class="text-primary">Soft Skills</h5>
-                            <p>Adaptability, Clear communication with non-technical stakeholders</p>
-
-                            <h4 class="text-info">Languages</h4>
-                            <p>Arabic (Native)<br>English (B2 - TOEIC 920)<br>French (B2)<br>German (A2)</p>
-
-                            <h4 class="text-warning">Distinctions</h4>
-                            <p>PIX Advanced Level (2025)<br>Teens Who Code (2018)</p>
-
-                            <h4 class="text-danger">Interests</h4>
-                            <p>Self-Learning (UDEMY)<br>Football<br>Manga Reading<br>Series / Movies / Anime</p>
-                        </div>
-                    </div>
-                `;
-            }
-        }
-
-        // --- TOGGLE MLD ACCORDION ---
-        function toggleMLD() {
-            const content = document.getElementById('mld-accordion');
-            const btn = document.querySelector('.btn-mld-toggle');
-            content.classList.toggle('show');
-            btn.classList.toggle('active');
-        }
-
-        // --- LIGHTBOX ---
-        function openLightbox(src) {
-            const overlay = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            const overlay = document.getElementById('lightbox');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeLightbox();
-        });
-
-        // Attach click to all project images
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.project-img').forEach(function (img) {
-                img.addEventListener('click', function () {
-                    openLightbox(this.src);
-                });
-            });
-        });
-
-        // --- BOUTON RETOUR EN HAUT (Scroll event) ---
-        window.onscroll = function () {
-            const btn = document.getElementById("btn-back-to-top");
-            if (btn) {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    btn.style.display = "block";
-                } else {
-                    btn.style.display = "none";
-                }
-            }
-        };
-
-        // Charger le CV français par défaut(optionnel, mais sympa pour l'utilisateur)
-        // afficherCV('fr'); 
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
