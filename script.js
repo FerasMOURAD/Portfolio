@@ -124,13 +124,10 @@ function afficherCV(langue) {
                 <div class="col-md-4 border-start">
                     <h4 class="text-success">Compétences</h4>
                     <h5 class="text-primary">Data</h5>
-                    <p>PostgreSQL, Power BI, DAX, Power Query, R, Pandas, NumPy</p>
+                    <p>PostgreSQL, Power BI, DAX, Power Query, R, MS Office, Pandas, NumPy, Modélisation MCD/MLD</p>
 
                     <h5 class="text-primary">Programmation</h5>
-                    <p>Python, C, Java, Git</p>
-
-                    <h5 class="text-primary">Outils</h5>
-                    <p>Microsoft Office, VSCode, Antigravity</p>
+                    <p>Python, C, Java, Git, Grid5000</p>
 
                     <h4 class="text-info">Langues</h4>
                     <p>Arabe (natif)<br>Français (B2)<br>Anglais (C1 – TOEIC 920)<br>Allemand (A2)</p>
@@ -219,13 +216,10 @@ function afficherCV(langue) {
                 <div class="col-md-4 border-start">
                     <h4 class="text-success">Skills</h4>
                     <h5 class="text-primary">Data</h5>
-                    <p>PostgreSQL, Power BI, DAX, Power Query, R, Pandas, NumPy</p>
+                    <p>PostgreSQL, Power BI, DAX, Power Query, R, MS Office, Pandas, NumPy, MCD/MLD Modeling</p>
 
                     <h5 class="text-primary">Programming</h5>
-                    <p>Python, C, Java, Git</p>
-
-                    <h5 class="text-primary">Tools</h5>
-                    <p>Microsoft Office, VSCode, Antigravity</p>
+                    <p>Python, C, Java, Git, Grid5000</p>
 
                     <h4 class="text-info">Languages</h4>
                     <p>Arabic (Native)<br>French (B2)<br>English (C1 – TOEIC 920)<br>German (A2)</p>
