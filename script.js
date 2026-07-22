@@ -231,7 +231,7 @@ function afficherCV(langue) {
                     <p>Arabic (Native)<br>French (B2)<br>English (C1 – TOEIC 920)<br>German (A2)</p>
 
                     <h4 class="text-warning">Certifications</h4>
-                    <p>Power BI Certification (UDEMY)<br>PIX Advanced Level (2025)<br>Teens Who Code (2018)</p>
+                    <p>Power BI (UDEMY)<br>PIX Advanced Level (2025)<br>Teens Who Code (2018)</p>
 
                     <h4 class="text-danger">Interests</h4>
                     <p>Self-learning on UDEMY<br>Football<br>Manga reading<br>Series / Movies</p>
