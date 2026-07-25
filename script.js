@@ -82,7 +82,7 @@ function afficherCV(langue) {
                         <h5>Dashboard Power BI &amp; Data Viz</h5>
                         <span class="text-muted">Projet personnel | 2025</span>
                         <ul>
-                            <li>Réduction de 30% du temps de préparation; 5-10 KPI interactifs livrés pour le suivi et la prise de décision.</li>
+                            <li>Réduction de 30% du temps de préparation; livraison de KPI interactifs pour le suivi et la prise de décision.</li>
                         </ul>
                     </div>
                     <div class="mb-3">
@@ -95,7 +95,7 @@ function afficherCV(langue) {
                     
                     <h3 class="text-primary border-bottom pb-2 mt-4">Expériences Professionnelles</h3>
                     <div class="mb-3">
-                        <h5>Stagiaire Initiation à la Recherche</h5>
+                        <h5>Stagiaire Recherche</h5>
                         <span class="text-muted">CRIStAL, équipe CFHP – Université de Lille | 06/2026 – Présent</span>
                         <ul>
                             <li>Compare 4 méthodes d'estimation de paramètres sur systèmes dynamiques, garantissant la stabilité numérique via expérimentations Python reproductibles.</li>
@@ -107,7 +107,7 @@ function afficherCV(langue) {
                         <span class="text-muted">Spinneys – Saïda, Liban | 06/2023 – 08/2023</span>
                         <ul>
                             <li>Réduit de 30% le temps de préparation sur plusieurs milliers de lignes via nettoyage et déduplication Power Query.</li>
-                            <li>Conçu 5-10 KPI interactifs sous Power BI (ventes, rotation stocks, ruptures) pour le pilotage opérationnel en temps réel.</li>
+                            <li>Conçu des KPI interactifs sous Power BI (ventes, rotation stocks, ruptures) pour le pilotage opérationnel en temps réel.</li>
                             <li>Collaboré avec les équipes pour recueillir les besoins et aligner les rapports aux processus métier.</li>
                         </ul>
                     </div>
@@ -174,7 +174,7 @@ function afficherCV(langue) {
                         <h5>Power BI Dashboard &amp; Data Viz</h5>
                         <span class="text-muted">Personal Project | 2025</span>
                         <ul>
-                            <li>30% reduction in preparation time; 5-10 interactive KPIs delivered for tracking and decision making.</li>
+                            <li>30% reduction in preparation time; interactive KPIs delivered for tracking and decision making.</li>
                         </ul>
                     </div>
                     <div class="mb-3">
@@ -187,7 +187,7 @@ function afficherCV(langue) {
                     
                     <h3 class="text-primary border-bottom pb-2 mt-4">Professional Experience</h3>
                     <div class="mb-3">
-                        <h5>Research Initiation Intern</h5>
+                        <h5>Research Intern</h5>
                         <span class="text-muted">CRIStAL, CFHP team – University of Lille | 06/2026 – Present</span>
                         <ul>
                             <li>Compared 4 parameter estimation methods on dynamical systems, ensuring numerical stability through reproducible Python experiments.</li>
@@ -199,7 +199,7 @@ function afficherCV(langue) {
                         <span class="text-muted">Spinneys – Saida, Lebanon | 06/2023 – 08/2023</span>
                         <ul>
                             <li>Reduced preparation time by 30% across several thousand rows using Power Query cleaning and deduplication.</li>
-                            <li>Designed 5-10 interactive Power BI KPIs (sales, inventory rotation, stockouts) for real-time operational management.</li>
+                            <li>Designed interactive Power BI KPIs (sales, inventory rotation, stockouts) for real-time operational management.</li>
                             <li>Collaborated with teams to gather requirements and align reports with business processes.</li>
                         </ul>
                     </div>
