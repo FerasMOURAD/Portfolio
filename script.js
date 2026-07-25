@@ -57,6 +57,7 @@ function afficherCV(langue) {
                         <ul>
                             <li>Compare 4 méthodes d'estimation de paramètres sur systèmes dynamiques, garantissant la stabilité numérique via expérimentations Python reproductibles.</li>
                             <li>Optimise un package open source (refactoring, tests unitaires), améliorant la maintenabilité et la vitesse de traitement des algorithmes.</li>
+                            <li>Exécuté des campagnes de calcul intensif sur l'infrastructure distribuée Grid5000 pour l'exécution de codes nécessitant des ressources de calcul importantes.</li>
                         </ul>
                     </div>
                     <div class="mb-3">
@@ -151,6 +152,7 @@ function afficherCV(langue) {
                         <ul>
                             <li>Compared 4 parameter estimation methods on dynamical systems, ensuring numerical stability through reproducible Python experiments.</li>
                             <li>Optimized an open-source package (refactoring, unit tests), improving maintainability and algorithm processing speed.</li>
+                            <li>Executed intensive computing campaigns on the distributed Grid5000 infrastructure for running codes that require significant computational resources.</li>
                         </ul>
                     </div>
                     <div class="mb-3">
