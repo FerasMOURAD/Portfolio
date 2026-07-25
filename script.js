@@ -50,15 +50,31 @@ function afficherCV(langue) {
         conteneur.innerHTML = `
             <div class="row">
                 <div class="col-md-8">
-                    <h3 class="text-primary border-bottom pb-2">Formation</h3>
+                    <h3 class="text-primary border-bottom pb-2">Expériences Professionnelles</h3>
                     <div class="mb-3">
-                        <h5>Licence Informatique – Parcours Data</h5>
-                        <span class="text-muted">Université de Lille, Lille, France</span>
+                        <h5>Stagiaire Recherche</h5>
+                        <span class="text-muted">CRIStAL, équipe CFHP – Université de Lille | 06/2026 – Présent</span>
+                        <ul>
+                            <li>Compare 4 méthodes d'estimation de paramètres sur systèmes dynamiques, garantissant la stabilité numérique via expérimentations Python reproductibles.</li>
+                            <li>Optimise un package open source (refactoring, tests unitaires), améliorant la maintenabilité et la vitesse de traitement des algorithmes.</li>
+                        </ul>
                     </div>
                     <div class="mb-3">
-                        <h5>Baccalauréat Libanais – Sciences de la Vie</h5>
-                        <span class="text-muted">Lycée Rafic Hariri – Saïda, Liban</span>
-                        <p>Mention : Très Bien</p>
+                        <h5>Stagiaire Data Analyst</h5>
+                        <span class="text-muted">Spinneys – Saïda, Liban | 06/2023 – 08/2023</span>
+                        <ul>
+                            <li>Réduit de 30% le temps de préparation sur plusieurs milliers de lignes via nettoyage et déduplication Power Query.</li>
+                            <li>Conçu des KPI interactifs sous Power BI (ventes, rotation stocks, ruptures) pour le pilotage opérationnel en temps réel.</li>
+                            <li>Collaboré avec les équipes pour recueillir les besoins et aligner les rapports aux processus métier.</li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>Assistant Recrutement</h5>
+                        <span class="text-muted">AlWassim Career Leaders – Saïda, Liban | 06/2022 – 08/2022</span>
+                        <ul>
+                            <li>Traité et normalisé une base de 50+ candidatures, réduisant le temps de traitement de 20% par centralisation rigoureuse.</li>
+                            <li>Alignement des profils candidats et exigences métiers dans un environnement international.</li>
+                        </ul>
                     </div>
 
                     <h3 class="text-primary border-bottom pb-2 mt-4">Projets</h3>
@@ -93,31 +109,15 @@ function afficherCV(langue) {
                         </ul>
                     </div>
                     
-                    <h3 class="text-primary border-bottom pb-2 mt-4">Expériences Professionnelles</h3>
+                    <h3 class="text-primary border-bottom pb-2 mt-4">Formation</h3>
                     <div class="mb-3">
-                        <h5>Stagiaire Recherche</h5>
-                        <span class="text-muted">CRIStAL, équipe CFHP – Université de Lille | 06/2026 – Présent</span>
-                        <ul>
-                            <li>Compare 4 méthodes d'estimation de paramètres sur systèmes dynamiques, garantissant la stabilité numérique via expérimentations Python reproductibles.</li>
-                            <li>Optimise un package open source (refactoring, tests unitaires), améliorant la maintenabilité et la vitesse de traitement des algorithmes.</li>
-                        </ul>
+                        <h5>Licence Informatique – Parcours Data</h5>
+                        <span class="text-muted">Université de Lille, Lille, France</span>
                     </div>
                     <div class="mb-3">
-                        <h5>Stagiaire Data Analyst</h5>
-                        <span class="text-muted">Spinneys – Saïda, Liban | 06/2023 – 08/2023</span>
-                        <ul>
-                            <li>Réduit de 30% le temps de préparation sur plusieurs milliers de lignes via nettoyage et déduplication Power Query.</li>
-                            <li>Conçu des KPI interactifs sous Power BI (ventes, rotation stocks, ruptures) pour le pilotage opérationnel en temps réel.</li>
-                            <li>Collaboré avec les équipes pour recueillir les besoins et aligner les rapports aux processus métier.</li>
-                        </ul>
-                    </div>
-                    <div class="mb-3">
-                        <h5>Assistant Recrutement</h5>
-                        <span class="text-muted">AlWassim Career Leaders – Saïda, Liban | 06/2022 – 08/2022</span>
-                        <ul>
-                            <li>Traité et normalisé une base de 50+ candidatures, réduisant le temps de traitement de 20% par centralisation rigoureuse.</li>
-                            <li>Alignement des profils candidats et exigences métiers dans un environnement international.</li>
-                        </ul>
+                        <h5>Baccalauréat Libanais – Sciences de la Vie</h5>
+                        <span class="text-muted">Lycée Rafic Hariri – Saïda, Liban</span>
+                        <p>Mention : Très Bien</p>
                     </div>
                 </div>
                 
@@ -144,15 +144,31 @@ function afficherCV(langue) {
         conteneur.innerHTML = `
             <div class="row">
                 <div class="col-md-8">
-                    <h3 class="text-primary border-bottom pb-2">Education</h3>
+                    <h3 class="text-primary border-bottom pb-2">Professional Experience</h3>
                     <div class="mb-3">
-                        <h5>Bachelor's Degree in Computer Science – Data Track</h5>
-                        <span class="text-muted">University of Lille, Lille, France</span>
+                        <h5>Research Intern</h5>
+                        <span class="text-muted">CRIStAL, CFHP team – University of Lille | 06/2026 – Present</span>
+                        <ul>
+                            <li>Compared 4 parameter estimation methods on dynamical systems, ensuring numerical stability through reproducible Python experiments.</li>
+                            <li>Optimized an open-source package (refactoring, unit tests), improving maintainability and algorithm processing speed.</li>
+                        </ul>
                     </div>
                     <div class="mb-3">
-                        <h5>Lebanese Baccalaureate – Life Sciences</h5>
-                        <span class="text-muted">Rafic Hariri High School – Saida, Lebanon</span>
-                        <p>Honors: Highest Distinction</p>
+                        <h5>Data Analyst Intern</h5>
+                        <span class="text-muted">Spinneys – Saida, Lebanon | 06/2023 – 08/2023</span>
+                        <ul>
+                            <li>Reduced preparation time by 30% across several thousand rows using Power Query cleaning and deduplication.</li>
+                            <li>Designed interactive Power BI KPIs (sales, inventory rotation, stockouts) for real-time operational management.</li>
+                            <li>Collaborated with teams to gather requirements and align reports with business processes.</li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>Recruitment Assistant</h5>
+                        <span class="text-muted">AlWassim Career Leaders – Saida, Lebanon | 06/2022 – 08/2022</span>
+                        <ul>
+                            <li>Processed and normalized a database of 50+ applications, reducing processing time by 20% through rigorous centralization.</li>
+                            <li>Aligned candidate profiles with job requirements in an international environment.</li>
+                        </ul>
                     </div>
 
                     <h3 class="text-primary border-bottom pb-2 mt-4">Projects</h3>
@@ -185,31 +201,15 @@ function afficherCV(langue) {
                         </ul>
                     </div>
                     
-                    <h3 class="text-primary border-bottom pb-2 mt-4">Professional Experience</h3>
+                    <h3 class="text-primary border-bottom pb-2 mt-4">Education</h3>
                     <div class="mb-3">
-                        <h5>Research Intern</h5>
-                        <span class="text-muted">CRIStAL, CFHP team – University of Lille | 06/2026 – Present</span>
-                        <ul>
-                            <li>Compared 4 parameter estimation methods on dynamical systems, ensuring numerical stability through reproducible Python experiments.</li>
-                            <li>Optimized an open-source package (refactoring, unit tests), improving maintainability and algorithm processing speed.</li>
-                        </ul>
+                        <h5>Bachelor's Degree in Computer Science – Data Track</h5>
+                        <span class="text-muted">University of Lille, Lille, France</span>
                     </div>
                     <div class="mb-3">
-                        <h5>Data Analyst Intern</h5>
-                        <span class="text-muted">Spinneys – Saida, Lebanon | 06/2023 – 08/2023</span>
-                        <ul>
-                            <li>Reduced preparation time by 30% across several thousand rows using Power Query cleaning and deduplication.</li>
-                            <li>Designed interactive Power BI KPIs (sales, inventory rotation, stockouts) for real-time operational management.</li>
-                            <li>Collaborated with teams to gather requirements and align reports with business processes.</li>
-                        </ul>
-                    </div>
-                    <div class="mb-3">
-                        <h5>Recruitment Assistant</h5>
-                        <span class="text-muted">AlWassim Career Leaders – Saida, Lebanon | 06/2022 – 08/2022</span>
-                        <ul>
-                            <li>Processed and normalized a database of 50+ applications, reducing processing time by 20% through rigorous centralization.</li>
-                            <li>Aligned candidate profiles with job requirements in an international environment.</li>
-                        </ul>
+                        <h5>Lebanese Baccalaureate – Life Sciences</h5>
+                        <span class="text-muted">Rafic Hariri High School – Saida, Lebanon</span>
+                        <p>Honors: Highest Distinction</p>
                     </div>
                 </div>
                 
