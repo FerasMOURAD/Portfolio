@@ -50,7 +50,7 @@ function afficherCV(langue) {
         conteneur.innerHTML = `
             <div class="row">
                 <div class="col-md-8">
-                    <h3 class="text-primary border-bottom pb-2">Expériences Professionnelles</h3>
+                    <h3 class="text-primary border-bottom pb-2">Expériences</h3>
                     <div class="mb-3">
                         <h5>Stagiaire Recherche</h5>
                         <span class="text-muted">CRIStAL, équipe CFHP – Université de Lille | 06/2026 – Présent</span>
@@ -144,7 +144,7 @@ function afficherCV(langue) {
         conteneur.innerHTML = `
             <div class="row">
                 <div class="col-md-8">
-                    <h3 class="text-primary border-bottom pb-2">Professional Experience</h3>
+                    <h3 class="text-primary border-bottom pb-2"> Experience</h3>
                     <div class="mb-3">
                         <h5>Research Intern</h5>
                         <span class="text-muted">CRIStAL, CFHP team – University of Lille | 06/2026 – Present</span>
