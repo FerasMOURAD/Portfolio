@@ -134,7 +134,7 @@ function afficherCV(langue) {
                     <p>Arabe (natif)<br>Français (B2)<br>Anglais (C1 – TOEIC 920)<br>Allemand (A2)</p>
 
                     <h4 class="text-warning">Certifications</h4>
-                    <p>Power BI (UDEMY) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[Voir]</a><br>PIX Niveau Avancé (2025) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[Voir]</a><br>Teens Who Code (2018) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[Voir]</a></p>
+                    <p>Kanz AI Hackathon (2026) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[Voir]</a><br>Power BI (UDEMY) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[Voir]</a><br>PIX Niveau Avancé (2025) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[Voir]</a><br>Teens Who Code (2018) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[Voir]</a></p>
 
                     <h4 class="text-danger">Centres d'intérêt</h4>
                     <p>Apprentissage autonome sur UDEMY<br>Football<br>Lecture de mangas<br>Séries / Films</p>
@@ -227,7 +227,7 @@ function afficherCV(langue) {
                     <p>Arabic (Native)<br>French (B2)<br>English (C1 – TOEIC 920)<br>German (A2)</p>
 
                     <h4 class="text-warning">Certifications</h4>
-                    <p>Power BI (UDEMY) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[View]</a><br>PIX Advanced Level (2025) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[View]</a><br>Teens Who Code (2018) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[View]</a></p>
+                    <p>Kanz AI Hackathon (2026) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[View]</a><br>Power BI (UDEMY) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[View]</a><br>PIX Advanced Level (2025) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[View]</a><br>Teens Who Code (2018) <a href="#" class="text-info small text-decoration-none ms-1" onclick="naviguerVers('certifications')">[View]</a></p>
 
                     <h4 class="text-danger">Interests</h4>
                     <p>Self-learning on UDEMY<br>Football<br>Manga reading<br>Series / Movies</p>
