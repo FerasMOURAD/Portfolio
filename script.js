@@ -112,7 +112,7 @@ function afficherCV(langue) {
                     
                     <h3 class="text-primary border-bottom pb-2 mt-4">Formation</h3>
                     <div class="mb-3">
-                        <h5>Licence Informatique – Parcours Data</h5>
+                        <h5>Licence Informatique</h5>
                         <span class="text-muted">Université de Lille, Lille, France</span>
                     </div>
                     <div class="mb-3">
