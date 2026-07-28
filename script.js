@@ -56,8 +56,8 @@ function afficherCV(langue) {
                         <span class="text-muted">CRIStAL, équipe CFHP – Université de Lille | 06/2026 – Présent</span>
                         <ul>
                             <li>Comparé 4 méthodes d'estimation de paramètres sur systèmes dynamiques, garantissant la stabilité numérique via expérimentations Python reproductibles.</li>
-                            <li>Optimisé un package open source (refactoring, tests unitaires), améliorant la maintenabilité et la vitesse de traitement des algorithmes.</li>
-                            <li>Exécuté des campagnes de calcul intensif sur l'infrastructure distribuée Grid5000 pour l'exécution de codes nécessitant des ressources de calcul importantes.</li>
+                            <li>Participé à l'optimisation d'un package open source (refactoring, tests unitaires), améliorant la maintenabilité et la vitesse de traitement des algorithmes.</li>
+                            <li>Exécuté des campagnes de calcul intensif sur Grid5000 pour l'exécution de codes nécessitant des ressources de calcul importantes.</li>
                         </ul>
                     </div>
                     <div class="mb-3">
