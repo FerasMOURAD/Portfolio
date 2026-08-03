@@ -97,14 +97,14 @@ function afficherCV(langue) {
 
                     <div class="mb-3">
                         <h5>Dashboard Power BI &amp; Data Viz</h5>
-                        <span class="text-muted">Projet personnel | 2025</span>
+                        <span class="text-muted">Projet personnel | 2026</span>
                         <ul>
                             <li>Réduction de 30% du temps de préparation; livraison de KPI interactifs pour le suivi et la prise de décision.</li>
                         </ul>
                     </div>
                     <div class="mb-3">
                         <h5>Système d'Information Aérien</h5>
-                        <span class="text-muted">Projet académique | 2025</span>
+                        <span class="text-muted">Projet académique | 2026</span>
                         <ul>
                             <li>BDD relationnelle avec 10+ entités et contraintes d'intégrité strictes sous PostgreSQL; app web avec vues dynamiques, jointures complexes et interfaces CRUD.</li>
                         </ul>
@@ -190,14 +190,14 @@ function afficherCV(langue) {
                     </div>
                     <div class="mb-3">
                         <h5>Power BI Dashboard &amp; Data Viz</h5>
-                        <span class="text-muted">Personal Project | 2025</span>
+                        <span class="text-muted">Personal Project | 2026</span>
                         <ul>
                             <li>30% reduction in preparation time; interactive KPIs delivered for tracking and decision making.</li>
                         </ul>
                     </div>
                     <div class="mb-3">
                         <h5>Airline Information System</h5>
-                        <span class="text-muted">Academic Project | 2025</span>
+                        <span class="text-muted">Academic Project | 2026</span>
                         <ul>
                             <li>Relational database with 10+ entities and strict integrity constraints under PostgreSQL; web app with dynamic views, complex joins and CRUD interfaces.</li>
                         </ul>
