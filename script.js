@@ -53,7 +53,7 @@ function afficherCV(langue) {
                     <h3 class="text-primary border-bottom pb-2">Expériences</h3>
                     <div class="mb-3">
                         <h5>Stagiaire Recherche</h5>
-                        <span class="text-muted">CRIStAL, équipe CFHP – Université de Lille | 06/2026 – Présent</span>
+                        <span class="text-muted">CRIStAL, équipe Calcul Formel et Haute Performance – Université de Lille | 06/2026 – Présent</span>
                         <ul>
                             <li>Comparé 4 méthodes d'estimation de paramètres sur systèmes dynamiques, garantissant la stabilité numérique via expérimentations Python reproductibles.</li>
                             <li>Participé à l'optimisation d'un package open source (refactoring, tests unitaires), améliorant la maintenabilité et la vitesse de traitement des algorithmes.</li>
@@ -112,7 +112,8 @@ function afficherCV(langue) {
                     
                     <h3 class="text-primary border-bottom pb-2 mt-4">Formation</h3>
                     <div class="mb-3">
-                        <h5>Licence Informatique</h5>
+                        <h5>But Sciences de Données</h5>
+                        <span>2027</span>
                         <span class="text-muted">Université de Lille, Lille, France</span>
                     </div>
                     <div class="mb-3">
@@ -205,7 +206,7 @@ function afficherCV(langue) {
                     
                     <h3 class="text-primary border-bottom pb-2 mt-4">Education</h3>
                     <div class="mb-3">
-                        <h5>Bachelor's Degree in Computer Science – Data Track</h5>
+                        <h5>Bachelor's Degree in Data Science</h5>
                         <span class="text-muted">University of Lille, Lille, France</span>
                     </div>
                     <div class="mb-3">
